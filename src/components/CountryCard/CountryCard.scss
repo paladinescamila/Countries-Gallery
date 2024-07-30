@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+.card {
+	width: 264px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 0 10px 5px rgba($black, 0.05);
+
+	&__flag {
+		width: 264px;
+		height: 160px;
+		border-radius: 5px 5px 0 0;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		row-gap: 10px;
+		padding: 30px;
+	}
+
+	&__name {
+		font-size: 18px;
+		font-weight: bolder;
+		padding-bottom: 20px;
+	}
+
+	&__prop {
+		display: flex;
+		flex-direction: row;
+		column-gap: 4px;
+		font-size: 14px;
+
+		& > span:first-of-type {
+			font-weight: 600;
+		}
+	}
+}
