@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.theme--dark {
+	background-color: $dark-background;
+	color: $dark-text;
+}
+
+.theme--light {
+	background-color: $light-background;
+	color: $light-text;
+}
+
+@mixin apply-theme($class-name) {
+	.theme--dark {
+		.#{$class-name} {
+			background-color: $dark-elements;
+			@content;
+		}
+	}
+
+	.theme--light {
+		.#{$class-name} {
+			background-color: $dark-elements;
+			@content;
+		}
+	}
+}

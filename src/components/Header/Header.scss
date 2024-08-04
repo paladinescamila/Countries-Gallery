@@ -1,0 +1,20 @@
+@import '../../styles/main.scss';
+
+.header {
+	padding: 30px 80px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: $box-shadow;
+}
+
+.theme-switch {
+	font-size: 16px;
+	font-weight: 600;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+@include apply-theme(header);
