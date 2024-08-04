@@ -8,7 +8,7 @@ export default function Header() {
 
 	return (
 		<header className='header'>
-			<h1>Where in the world?</h1>
+			<h1 className='header__title'>Where in the world?</h1>
 			<div className='theme-switch' onClick={toggleTheme}>
 				<MoonIcon className='theme-switch__icon' />
 				<p className='theme-switch__text'>{capitalize(theme)} Mode</p>

@@ -1,12 +1,17 @@
 @import '../../styles/main.scss';
 
 .header {
-	padding: 30px 80px;
+	padding: 23px 80px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 	box-shadow: $box-shadow;
+
+	&__title {
+		font-size: 24px;
+		letter-spacing: 1.5;
+	}
 }
 
 .theme-switch {
@@ -21,8 +26,8 @@
 	user-select: none;
 
 	&__icon {
-		width: 15px;
-		height: 15px;
+		width: 16px;
+		height: 16px;
 	}
 
 	&__text {
