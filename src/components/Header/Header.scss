@@ -10,11 +10,25 @@
 }
 
 .theme-switch {
-	font-size: 16px;
-	font-weight: 600;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	column-gap: 10px;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
+	user-select: none;
+
+	&__icon {
+		width: 15px;
+		height: 15px;
+	}
+
+	&__text {
+		font-size: 16px;
+		font-weight: 600;
+	}
 }
 
 @include apply-theme(header);

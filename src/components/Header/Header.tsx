@@ -1,5 +1,6 @@
 import {useAppContext} from '../../context/AppContext';
-import {capitalize} from '../../utils/capitalize';
+import {capitalize} from '../../utils/text';
+import {MoonIcon} from '@heroicons/react/24/solid';
 import './Header.scss';
 
 export default function Header() {
@@ -9,7 +10,8 @@ export default function Header() {
 		<header className='header'>
 			<h1>Where in the world?</h1>
 			<div className='theme-switch' onClick={toggleTheme}>
-				<p>{capitalize(theme)} Mode</p>
+				<MoonIcon className='theme-switch__icon' />
+				<p className='theme-switch__text'>{capitalize(theme)} Mode</p>
 			</div>
 		</header>
 	);

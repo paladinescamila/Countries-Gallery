@@ -1,0 +1,28 @@
+@import '../../styles/main.scss';
+
+.search {
+	width: 480px;
+	border-radius: $border-radius;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-left: 30px;
+	box-shadow: $box-shadow;
+
+	&__icon {
+		width: 17px;
+		height: 17px;
+	}
+
+	&__input {
+		border: none;
+		flex: 1;
+		padding: 20px 30px 20px 25px;
+		outline: none;
+		font-size: 14px;
+		border-radius: $border-radius;
+	}
+}
+
+@include apply-theme(search);
+@include apply-theme(search__input);

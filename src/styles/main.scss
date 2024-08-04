@@ -14,12 +14,14 @@
 	.theme--dark {
 		.#{$class-name} {
 			background-color: $dark-elements;
+			color: $dark-text;
 		}
 	}
 
 	.theme--light {
 		.#{$class-name} {
 			background-color: $light-elements;
+			color: $light-text;
 		}
 	}
 }

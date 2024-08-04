@@ -3,4 +3,16 @@
 	grid-gap: 75px;
 	grid-template-columns: repeat(4, 1fr);
 	margin: 0 80px;
+	padding-bottom: 80px;
+}
+
+.no-results {
+	font-size: 16px;
+	margin: 0 80px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.3;
+	height: 50vh;
 }

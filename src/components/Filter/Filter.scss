@@ -1,0 +1,50 @@
+@import '../../styles/main.scss';
+
+.filter {
+	position: relative;
+	user-select: none;
+}
+
+.filter-button {
+	padding: 22px;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 50px;
+	cursor: pointer;
+
+	&__text {
+		font-size: 14px;
+	}
+
+	&__icon {
+		width: 14px;
+		height: 14px;
+	}
+}
+
+.filter-options {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: 0;
+	right: 0;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+	display: flex;
+	flex-direction: column;
+	row-gap: 18px;
+	padding: 20px 25px;
+
+	& > li {
+		cursor: pointer;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+@include apply-theme(filter-button);
+@include apply-theme(filter-options);
