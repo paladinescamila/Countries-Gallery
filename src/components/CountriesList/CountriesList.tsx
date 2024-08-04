@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
-import COUNTRIES from '../../assets/data/data.json';
 import {useAppContext} from '../../context/AppContext';
+import {loadCountries} from '../../utils/api';
 import './CountriesList.scss';
 
 // Components
@@ -9,18 +9,26 @@ import {normalizeText} from '../../utils/text';
 
 export default function CountriesList() {
 	const {search, filterBy} = useAppContext();
-	const [showedCountries, setShowedCountries] = useState<Country[]>(COUNTRIES as Country[]);
+	const [loading, setLoading] = useState<boolean>(false);
+	const [countries, setCountries] = useState<Country[]>([]);
+	const [showedCountries, setShowedCountries] = useState<Country[]>([]);
 
 	useEffect(() => {
-		let newShowedCountries = COUNTRIES as Country[];
+		setLoading(true);
+		loadCountries().then((newCountries) => {
+			setCountries(newCountries);
+			setLoading(false);
+		});
+	}, []);
+
+	useEffect(() => {
+		let newShowedCountries = countries;
 
 		if (search) {
 			const normalizedSearch = normalizeText(search);
 
-			newShowedCountries = newShowedCountries.filter(
-				(country) =>
-					normalizeText(country.name).includes(normalizedSearch) ||
-					normalizeText(country.nativeName).includes(normalizedSearch)
+			newShowedCountries = newShowedCountries.filter((country) =>
+				normalizeText(country.name.common).includes(normalizedSearch)
 			);
 		}
 
@@ -31,7 +39,9 @@ export default function CountriesList() {
 		}
 
 		setShowedCountries(newShowedCountries);
-	}, [search, filterBy]);
+	}, [countries, search, filterBy]);
+
+	if (loading) return <p className='no-results'>Getting countries...</p>;
 
 	if (showedCountries.length === 0 && search)
 		return <p className='no-results'>No results found for "{search}"</p>;

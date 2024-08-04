@@ -11,7 +11,7 @@ export default function CountryCard(props: CountryCardProps) {
 		<li className='card'>
 			<img className='card__flag' src={country.flags.png} />
 			<div className='card__info'>
-				<p className='card__name'>{country.name}</p>
+				<p className='card__name'>{country.name.common}</p>
 				<p className='card__prop'>
 					<span>Population:</span>
 					<span>{country.population.toLocaleString()}</span>
