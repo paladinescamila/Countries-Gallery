@@ -14,14 +14,25 @@ li {
 .app {
 	display: flex;
 	flex-direction: column;
-	gap: 48px;
+	row-gap: 48px;
 	min-height: 100vh;
+
+	@media (max-width: $mobile-width) {
+		row-gap: 20px;
+	}
 }
 
 .search-and-filter {
 	margin: 0 80px;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
+	row-gap: 20px;
+	z-index: 100;
+
+	@media (max-width: $mobile-width) {
+		margin: 0 20px;
+	}
 }

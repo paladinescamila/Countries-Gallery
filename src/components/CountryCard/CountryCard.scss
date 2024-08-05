@@ -6,6 +6,11 @@
 	flex-direction: column;
 	box-shadow: $box-shadow;
 	cursor: pointer;
+	transition: transform 0.5s;
+
+	&:hover {
+		transform: scale(1.03);
+	}
 
 	&__flag {
 		width: 100%;
@@ -34,6 +39,10 @@
 
 		& > span:first-of-type {
 			font-weight: 600;
+		}
+
+		& > span:last-of-type {
+			font-weight: 300;
 		}
 	}
 }
