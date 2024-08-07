@@ -1,0 +1,73 @@
+@import '../../styles/main.scss';
+
+.container {
+	margin: 0 80px;
+	display: flex;
+	column-gap: 145px;
+	grid-template-columns: 560px 1fr;
+	align-items: center;
+}
+
+.flag {
+	width: 560px;
+	height: 400px;
+}
+
+.name {
+	font-size: 32px;
+	font-weight: 800;
+}
+
+.props {
+	margin: 30px 0 65px;
+}
+
+.prop {
+	display: flex;
+	flex-direction: row;
+	column-gap: 5px;
+	align-items: center;
+	font-size: 16px;
+
+	& > span:first-of-type {
+		font-weight: 600;
+	}
+
+	& > span:last-of-type {
+		font-weight: 300;
+	}
+}
+
+.border-countries {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 15px;
+	font-size: 16px;
+	text-wrap: nowrap;
+
+	& > p {
+		font-weight: 600;
+	}
+}
+
+.border-countries-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+
+	&__item {
+		min-width: 100px;
+		padding: 5px 10px;
+		border-radius: $border-radius;
+		box-shadow: $box-shadow;
+		user-select: none;
+		cursor: pointer;
+		text-align: center;
+		font-size: 14px;
+	}
+}
+
+@include apply-theme(border-countries-list__item);

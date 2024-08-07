@@ -8,18 +8,19 @@ import CountryCard from '../CountryCard/CountryCard';
 import {normalizeText} from '../../utils/text';
 
 export default function CountriesList() {
-	const {search, filterBy} = useAppContext();
+	const {search, filterBy, setCountriesCollection} = useAppContext();
 	const [loading, setLoading] = useState<boolean>(false);
 	const [countries, setCountries] = useState<Country[]>([]);
 	const [showedCountries, setShowedCountries] = useState<Country[]>([]);
 
 	useEffect(() => {
 		setLoading(true);
-		loadCountries().then((newCountries) => {
-			setCountries(newCountries);
+		loadCountries().then(({countriesArray, countriesCollection}) => {
+			setCountries(countriesArray);
+			setCountriesCollection(countriesCollection);
 			setLoading(false);
 		});
-	}, []);
+	}, [setCountriesCollection]);
 
 	useEffect(() => {
 		let newShowedCountries = countries;

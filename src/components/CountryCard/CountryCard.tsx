@@ -1,3 +1,4 @@
+import {useAppContext} from '../../context/AppContext';
 import './CountryCard.scss';
 
 interface CountryCardProps {
@@ -5,10 +6,11 @@ interface CountryCardProps {
 }
 
 export default function CountryCard(props: CountryCardProps) {
+	const {goTo} = useAppContext();
 	const {country} = props;
 
 	return (
-		<li className='card'>
+		<li className='card' onClick={() => goTo(country)}>
 			<img className='card__flag' src={country.flags.png} />
 			<div className='card__info'>
 				<p className='card__name'>{country.name.common}</p>
