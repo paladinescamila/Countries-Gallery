@@ -7,7 +7,11 @@ export default function CountryCard({country}: {country: Country}) {
 
 	return (
 		<li className='card' onClick={() => goTo(country)}>
-			<img className='card__flag' src={country.flags.png} />
+			<img
+				className='card__flag'
+				src={country.flags.png}
+				alt={`${country.name.common} flag`}
+			/>
 			<div className='card__info'>
 				<p className='card__name'>{country.name.common}</p>
 				<p className='card__prop'>
