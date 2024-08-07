@@ -1,5 +1,6 @@
 import {useAppContext} from '../../context/AppContext';
-import {MoonIcon} from '@heroicons/react/24/outline';
+import {MoonIcon as MoonIconSolid} from '@heroicons/react/24/solid';
+import {MoonIcon as MoonIconOutline} from '@heroicons/react/24/outline';
 import './Header.scss';
 
 export default function Header() {
@@ -10,8 +11,12 @@ export default function Header() {
 		<header className='header'>
 			<h1 className='header__title'>Where in the world?</h1>
 			<div className='theme-switch' onClick={toggleTheme}>
-				<MoonIcon className='theme-switch__icon' />
-				<p className='theme-switch__text'>{theme[0].toUpperCase() + theme.slice(1)} Mode</p>
+				{theme === 'dark' ? (
+					<MoonIconSolid className='theme-switch__icon' />
+				) : (
+					<MoonIconOutline className='theme-switch__icon' />
+				)}
+				<p className='theme-switch__text'>Dark Mode</p>
 			</div>
 		</header>
 	);
