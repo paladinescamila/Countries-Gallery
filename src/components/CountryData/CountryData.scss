@@ -12,12 +12,12 @@
 
 	@media (max-width: 1300px) {
 		grid-template-columns: 400px 1fr;
+		align-items: flex-start;
 	}
 
 	@media (max-width: 1200px) {
 		grid-template-columns: 1fr;
 		grid-template-rows: 230px 1fr;
-		justify-items: center;
 		row-gap: 50px;
 	}
 
@@ -33,6 +33,7 @@
 
 	@media (max-width: 1300px) {
 		width: 400px;
+		height: auto;
 	}
 
 	@media (max-width: 1200px) {
