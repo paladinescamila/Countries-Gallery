@@ -3,6 +3,7 @@ import {MagnifyingGlassIcon} from '@heroicons/react/24/solid';
 import './Search.scss';
 
 export default function Search() {
+	// Context
 	const {search, setSearch} = useAppContext();
 
 	return (

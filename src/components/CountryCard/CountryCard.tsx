@@ -1,13 +1,9 @@
 import {useAppContext} from '../../context/AppContext';
 import './CountryCard.scss';
 
-interface CountryCardProps {
-	country: Country;
-}
-
-export default function CountryCard(props: CountryCardProps) {
+export default function CountryCard({country}: {country: Country}) {
+	// Context
 	const {goTo} = useAppContext();
-	const {country} = props;
 
 	return (
 		<li className='card' onClick={() => goTo(country)}>

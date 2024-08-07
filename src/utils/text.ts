@@ -1,5 +1,4 @@
-export const capitalize = (text: string) => text[0].toUpperCase() + text.slice(1);
-
+/** Replaces accents and special characters, and converts to lowercase */
 export const normalizeText = (text: string) =>
 	text
 		.normalize('NFD')

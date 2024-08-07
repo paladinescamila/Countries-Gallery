@@ -2,22 +2,14 @@ import {useAppContext} from '../../context/AppContext';
 import './CountryData.scss';
 
 export default function CountryData() {
+	// Context
 	const {currentCountry, countriesCollection, goTo} = useAppContext();
 
 	if (currentCountry === null) return;
 
-	const {
-		flags,
-		name,
-		population,
-		region,
-		subregion,
-		capital,
-		tld,
-		currencies,
-		languages,
-		borders,
-	} = currentCountry;
+	// Country data
+	const {flags, name, borders} = currentCountry;
+	const {population, region, subregion, capital, tld, currencies, languages} = currentCountry;
 
 	return (
 		<div className='container'>

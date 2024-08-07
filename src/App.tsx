@@ -2,6 +2,7 @@ import {useAppContext} from './context/AppContext';
 import {ArrowLeftIcon} from '@heroicons/react/24/solid';
 import './styles/App.scss';
 
+// Components
 import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import Filter from './components/Filter/Filter';

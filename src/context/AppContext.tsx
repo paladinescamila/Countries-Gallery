@@ -5,8 +5,8 @@ interface ContextProps {
 	toggleTheme: () => void;
 	search: string;
 	setSearch: (search: string) => void;
-	filterBy: FilterBy | null;
-	setFilterBy: (filterBy: FilterBy | null) => void;
+	region: Region | null;
+	setRegion: (region: Region | null) => void;
 	countriesCollection: CountriesCollection;
 	setCountriesCollection: (collection: CountriesCollection) => void;
 	currentCountry: Country | null;
@@ -17,12 +17,15 @@ interface ContextProps {
 export const AppContext = createContext<ContextProps>({} as ContextProps);
 
 export const AppProvider = ({children}: {children: JSX.Element | JSX.Element[]}) => {
+	// Theme
 	const [theme, setTheme] = useState<Theme>('dark');
 	const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
 
+	// Search and filter
 	const [search, setSearch] = useState<string>('');
-	const [filterBy, setFilterBy] = useState<FilterBy | null>(null);
+	const [region, setRegion] = useState<Region | null>(null);
 
+	// Navigation
 	const [countriesCollection, setCountriesCollection] = useState<CountriesCollection>({});
 	const [currentCountry, setCurrentCountry] = useState<Country | null>(null);
 	const [navigationPath, setNavigationPath] = useState<Country[]>([]);
@@ -49,8 +52,8 @@ export const AppProvider = ({children}: {children: JSX.Element | JSX.Element[]})
 				toggleTheme,
 				search,
 				setSearch,
-				filterBy,
-				setFilterBy,
+				region,
+				setRegion,
 				countriesCollection,
 				setCountriesCollection,
 				currentCountry,

@@ -4,27 +4,30 @@ import {ChevronDownIcon, XMarkIcon} from '@heroicons/react/24/solid';
 import './Filter.scss';
 
 export default function Filter() {
+	// Context
+	const {region, setRegion} = useAppContext();
+
+	// Filter handling
 	const [showOptions, setShowOptions] = useState<boolean>(false);
 	const toggleOptions = () => setShowOptions((prev) => !prev);
-	const {filterBy, setFilterBy} = useAppContext();
 
-	const deleteFilter = () => {
-		setFilterBy(null);
-		setTimeout(() => setShowOptions(false), 100);
-	};
-
-	const selectOption = (option: FilterBy) => {
-		setFilterBy(option);
+	const selectOption = (option: Region) => {
+		setRegion(option);
 		setShowOptions(false);
 	};
 
+	const clearFilter = () => {
+		setRegion(null);
+		setTimeout(() => setShowOptions(false), 100);
+	};
+
+	// Hide options on click outside
 	const filterRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
-			if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+			if (filterRef.current && !filterRef.current.contains(event.target as Node))
 				setShowOptions(false);
-			}
 		};
 
 		document.addEventListener('mousedown', handleClickOutside);
@@ -35,10 +38,10 @@ export default function Filter() {
 		<div className='filter' ref={filterRef}>
 			<div className='filter-button' onClick={toggleOptions}>
 				<p className='filter-button__text'>
-					{filterBy ? `Region: ${filterBy}` : 'Filter by Region'}
+					{region ? `Region: ${region}` : 'Filter by Region'}
 				</p>
-				{filterBy ? (
-					<XMarkIcon className='filter-button__icon' onClick={deleteFilter} />
+				{region ? (
+					<XMarkIcon className='filter-button__icon' onClick={clearFilter} />
 				) : (
 					<ChevronDownIcon className='filter-button__icon' />
 				)}

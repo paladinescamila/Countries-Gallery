@@ -8,10 +8,12 @@ import CountryCard from '../CountryCard/CountryCard';
 import {normalizeText} from '../../utils/text';
 
 export default function CountriesList() {
-	const {search, filterBy, setCountriesCollection} = useAppContext();
+	// Context
+	const {search, region, setCountriesCollection} = useAppContext();
+
+	// Data loading
 	const [loading, setLoading] = useState<boolean>(false);
 	const [countries, setCountries] = useState<Country[]>([]);
-	const [showedCountries, setShowedCountries] = useState<Country[]>([]);
 
 	useEffect(() => {
 		setLoading(true);
@@ -21,6 +23,9 @@ export default function CountriesList() {
 			setLoading(false);
 		});
 	}, [setCountriesCollection]);
+
+	// Search and filter
+	const [showedCountries, setShowedCountries] = useState<Country[]>([]);
 
 	useEffect(() => {
 		let newShowedCountries = countries;
@@ -33,14 +38,12 @@ export default function CountriesList() {
 			);
 		}
 
-		if (filterBy) {
-			newShowedCountries = newShowedCountries.filter(
-				(country) => country.region === filterBy
-			);
+		if (region) {
+			newShowedCountries = newShowedCountries.filter((country) => country.region === region);
 		}
 
 		setShowedCountries(newShowedCountries);
-	}, [countries, search, filterBy]);
+	}, [countries, search, region]);
 
 	if (loading) return <p className='no-results'>Getting countries...</p>;
 
@@ -50,7 +53,7 @@ export default function CountriesList() {
 	return (
 		<ul className='cards'>
 			{showedCountries.map((country) => (
-				<CountryCard key={country.cca2} country={country as Country} />
+				<CountryCard key={country.cca3} country={country as Country} />
 			))}
 		</ul>
 	);
