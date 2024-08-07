@@ -14,16 +14,20 @@ li {
 .app {
 	display: flex;
 	flex-direction: column;
-	row-gap: 48px;
 	min-height: 100vh;
+}
+
+.body {
+	padding: 0 80px 80px;
+	overflow-y: scroll;
+	max-height: calc(100vh - 80px);
 
 	@media (max-width: $mobile-width) {
-		row-gap: 20px;
+		padding: 0 20px 20px;
 	}
 }
 
 .search-and-filter {
-	margin: 0 80px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -31,9 +35,10 @@ li {
 	justify-content: space-between;
 	row-gap: 20px;
 	z-index: 100;
+	margin: 48px 0;
 
 	@media (max-width: $mobile-width) {
-		margin: 0 20px;
+		margin: 20px 0;
 	}
 }
 
@@ -47,14 +52,19 @@ li {
 	min-height: 40px;
 	box-shadow: $box-shadow;
 	border-radius: $border-radius;
-	margin: 0 80px;
 	width: max-content;
 	user-select: none;
 	cursor: pointer;
 
+	margin: 80px 0;
+
+	@media (max-width: $mobile-width) {
+		margin: 20px 0;
+	}
+
 	&__icon {
-		width: 18px;
-		height: 18px;
+		width: 20px;
+		height: 20px;
 	}
 
 	&__text {

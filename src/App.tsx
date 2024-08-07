@@ -15,21 +15,21 @@ function App() {
 		<div className={`app theme--${theme}`}>
 			<Header />
 			{currentCountry ? (
-				<>
+				<div className='body'>
 					<div className='go-back' onClick={goBack}>
 						<ArrowLeftIcon className='go-back__icon' />
 						<p className='go-back__text'>Back</p>
 					</div>
 					<CountryData />
-				</>
+				</div>
 			) : (
-				<>
+				<div className='body'>
 					<div className='search-and-filter'>
 						<Search />
 						<Filter />
 					</div>
 					<CountriesList />
-				</>
+				</div>
 			)}
 		</div>
 	);

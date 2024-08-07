@@ -33,7 +33,7 @@ type Country = {
 	coatOfArms: Record<string, unknown>;
 	startOfWeek: string;
 	capitalInfo: {latlng: [number, number]};
-	borders: string[];
+	borders?: string[];
 };
 
 type CountriesCollection = {[countryCode: string]: Country};

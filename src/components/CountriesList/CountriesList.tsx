@@ -50,7 +50,7 @@ export default function CountriesList() {
 	return (
 		<ul className='cards'>
 			{showedCountries.map((country) => (
-				<CountryCard country={country as Country} />
+				<CountryCard key={country.cca2} country={country as Country} />
 			))}
 		</ul>
 	);

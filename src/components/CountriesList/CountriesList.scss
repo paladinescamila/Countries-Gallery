@@ -4,8 +4,6 @@
 	display: grid;
 	grid-gap: 75px;
 	grid-template-columns: repeat(4, 1fr);
-	margin: 0 80px;
-	padding-bottom: 80px;
 
 	@media (max-width: 1400px) {
 		grid-gap: 40px;
@@ -13,11 +11,6 @@
 
 	@media (max-width: 1300px) {
 		grid-template-columns: repeat(3, 1fr);
-	}
-
-	@media (max-width: $mobile-width) {
-		margin: 0 20px;
-		padding-bottom: 20px;
 	}
 
 	@media (max-width: 900px) {
@@ -32,7 +25,6 @@
 
 .no-results {
 	font-size: 16px;
-	margin: 0 80px;
 	text-align: center;
 	display: flex;
 	justify-content: center;
