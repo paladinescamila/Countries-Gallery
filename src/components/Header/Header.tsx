@@ -1,5 +1,5 @@
 import {useAppContext} from '../../context/AppContext';
-import {MoonIcon} from '@heroicons/react/24/solid';
+import {MoonIcon} from '@heroicons/react/24/outline';
 import './Header.scss';
 
 export default function Header() {

@@ -18,7 +18,7 @@ export const AppContext = createContext<ContextProps>({} as ContextProps);
 
 export const AppProvider = ({children}: {children: JSX.Element | JSX.Element[]}) => {
 	// Theme
-	const [theme, setTheme] = useState<Theme>('dark');
+	const [theme, setTheme] = useState<Theme>('light');
 	const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
 
 	// Search and filter
