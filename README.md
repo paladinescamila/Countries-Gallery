@@ -6,7 +6,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ## Links
 
--   [Solution](https://www.frontendmentor.io/solutions/space-tourism-multipage-website-S3RicP_mv7)
+-   [Solution](https://www.frontendmentor.io/solutions/rest-countries-api-with-color-theme-switcher-3X2SBoQTTg)
 -   [Live Site](https://rca-frontend-mentor.netlify.app)
 
 ## Built with
