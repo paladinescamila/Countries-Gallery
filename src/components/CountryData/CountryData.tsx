@@ -18,48 +18,64 @@ export default function CountryData() {
 				<div className='name'>{name.common}</div>
 				<div className='props'>
 					<div className='props__left'>
-						<p className='prop'>
-							<span>Native Name:</span>
-							<span>{Object.values(name.nativeName)[0].common}</span>
-						</p>
-						<p className='prop'>
-							<span>Population:</span>
-							<span>{population.toLocaleString()}</span>
-						</p>
-						<p className='prop'>
-							<span>Region:</span>
-							<span>{region}</span>
-						</p>
-						<p className='prop'>
-							<span>Sub Region:</span>
-							<span>{subregion}</span>
-						</p>
-						<p className='prop'>
-							<span>Capital:</span>
-							<span>{capital}</span>
-						</p>
+						{name.nativeName && (
+							<p className='prop'>
+								<span>Native Name:</span>
+								<span>{Object.values(name.nativeName)[0].common}</span>
+							</p>
+						)}
+						{!!population && (
+							<p className='prop'>
+								<span>Population:</span>
+								<span>{population.toLocaleString()}</span>
+							</p>
+						)}
+						{region && (
+							<p className='prop'>
+								<span>Region:</span>
+								<span>{region}</span>
+							</p>
+						)}
+						{subregion && (
+							<p className='prop'>
+								<span>Sub Region:</span>
+								<span>{subregion}</span>
+							</p>
+						)}
+						{capital && (
+							<p className='prop'>
+								<span>Capital:</span>
+								<span>{capital}</span>
+							</p>
+						)}
 					</div>
 					<div className='props__right'>
-						<p className='prop'>
-							<span>Top Level Domain:</span>
-							<span>{Object.values(tld).join(', ')}</span>
-						</p>
-						<p className='prop'>
-							<span>Currencies:</span>
-							<span>
-								{Object.values(currencies)
-									.map((c) => c.name)
-									.join(', ')}
-							</span>
-						</p>
-						<p className='prop'>
-							<span>Languages:</span>
-							<span>
-								{Object.values(languages)
-									.sort((a, b) => a.localeCompare(b))
-									.join(', ')}
-							</span>
-						</p>
+						{tld && (
+							<p className='prop'>
+								<span>Top Level Domain:</span>
+								<span>{Object.values(tld).join(', ')}</span>
+							</p>
+						)}
+						{currencies && (
+							<p className='prop'>
+								<span>Currencies:</span>
+								<span>
+									{Object.values(currencies)
+										.map((c) => c.name)
+										.join(', ')}
+								</span>
+							</p>
+						)}
+						{languages && (
+							<p className='prop'>
+								<span>Languages:</span>
+								<span>
+									{Object.values(languages)
+										.sort((a, b) => a.localeCompare(b))
+										.join(', ')}
+								</span>
+							</p>
+						)}
 					</div>
 				</div>
 				{borders && (

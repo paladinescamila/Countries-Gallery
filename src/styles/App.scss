@@ -25,6 +25,10 @@ li {
 	@media (max-width: $mobile-width) {
 		padding: 0 20px 20px;
 	}
+
+	&--hidden {
+		display: none;
+	}
 }
 
 .search-and-filter {

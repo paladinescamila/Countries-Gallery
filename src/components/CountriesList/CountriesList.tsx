@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useMemo} from 'react';
 import {useAppContext} from '../../context/AppContext';
 import {loadCountries} from '../../utils/api';
 import './CountriesList.scss';
@@ -25,9 +25,7 @@ export default function CountriesList() {
 	}, [setCountriesCollection]);
 
 	// Search and filter
-	const [showedCountries, setShowedCountries] = useState<Country[]>([]);
-
-	useEffect(() => {
+	const showedCountries: Country[] = useMemo(() => {
 		let newShowedCountries = countries;
 
 		if (search) {
@@ -42,7 +40,7 @@ export default function CountriesList() {
 			newShowedCountries = newShowedCountries.filter((country) => country.region === region);
 		}
 
-		setShowedCountries(newShowedCountries);
+		return newShowedCountries;
 	}, [countries, search, region]);
 
 	if (loading) return <p className='no-results'>Getting countries...</p>;

@@ -4,16 +4,16 @@ type Country = {
 	name: {
 		common: string;
 		official: string;
-		nativeName: {[key: string]: {official: string; common: string}};
+		nativeName?: Record<string, {official: string; common: string}>;
 	};
-	population: number;
-	region: string;
-	subregion: string;
-	capital: string[];
-	tld: string[];
-	currencies: {[key: string]: {name: string; symbol: string}};
-	languages: {[key: string]: string};
+	population?: number;
+	region?: string;
+	subregion?: string;
+	capital?: string[];
+	tld?: string[];
+	currencies?: Record<string, {name: string; symbol: string}>;
+	languages?: Record<string, string>;
 	borders?: string[];
 };
 
-type CountriesCollection = {[countryCode: string]: Country};
+type CountriesCollection = {[cca3: string]: Country};
