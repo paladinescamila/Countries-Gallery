@@ -17,9 +17,9 @@ export default function CountriesList() {
 
 	useEffect(() => {
 		setLoading(true);
-		loadCountries().then(({countriesArray, countriesCollection}) => {
-			setCountries(countriesArray);
-			setCountriesCollection(countriesCollection);
+		loadCountries().then(({array, collection}) => {
+			setCountries(array);
+			setCountriesCollection(collection);
 			setLoading(false);
 		});
 	}, [setCountriesCollection]);
