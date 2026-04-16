@@ -21,7 +21,7 @@ export default function CountryData() {
 						{name.nativeName && (
 							<p className='prop'>
 								<span>Native Name:</span>
-								<span>{Object.values(name.nativeName)[0].common}</span>
+								<span>{Object.values(name.nativeName)[0]?.common}</span>
 							</p>
 						)}
 						{!!population && (
@@ -91,7 +91,7 @@ export default function CountryData() {
 											onClick={() => goTo(countriesCollection[b])}>
 											{countriesCollection[b].name.common}
 										</li>
-									)
+									),
 							)}
 						</ul>
 					</div>

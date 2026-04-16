@@ -1,4 +1,6 @@
-/** Replaces accents and special characters, and converts to lowercase */
+/**
+ * Replaces accents and special characters, and converts to lowercase
+ */
 export const normalizeText = (text: string) =>
 	text
 		.normalize('NFD')

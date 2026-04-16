@@ -22,7 +22,7 @@ export default function CountriesList() {
 			setCountriesCollection(collection);
 			setLoading(false);
 		});
-	}, [setCountriesCollection]);
+	}, []);
 
 	// Search and filter
 	const showedCountries: Country[] = useMemo(() => {
@@ -32,7 +32,7 @@ export default function CountriesList() {
 			const normalizedSearch = normalizeText(search);
 
 			newShowedCountries = newShowedCountries.filter((country) =>
-				normalizeText(country.name.common).includes(normalizedSearch)
+				normalizeText(country.name.common).includes(normalizedSearch),
 			);
 		}
 
