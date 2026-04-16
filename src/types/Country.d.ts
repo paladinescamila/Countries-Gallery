@@ -1,6 +1,7 @@
 type Country = {
+	cca2: string;
 	cca3: string;
-	flags: {png: string; svg: string};
+	flag?: string;
 	name: {
 		common: string;
 		official: string;

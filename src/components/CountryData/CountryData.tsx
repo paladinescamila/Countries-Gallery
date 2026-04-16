@@ -8,12 +8,12 @@ export default function CountryData() {
 	if (currentCountry === null) return;
 
 	// Country data
-	const {flags, name, borders} = currentCountry;
+	const {flag, name, borders} = currentCountry;
 	const {population, region, subregion, capital, tld, currencies, languages} = currentCountry;
 
 	return (
 		<div className='container'>
-			<img className='flag' src={flags.png} alt={`${currentCountry.name.common} flag`} />
+			<img className='flag' src={flag} alt={`${currentCountry.name.common} flag`} />
 			<div className='data'>
 				<div className='name'>{name.common}</div>
 				<div className='props'>

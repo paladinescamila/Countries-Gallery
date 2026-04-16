@@ -1,6 +1,9 @@
+import {getFlag} from './flag';
+
 /**
  * Fixes the country data by setting as undefined the properties that are empty objects
  * or empty strings, so they won't be rendered in the UI.
+ * Also, it adds the flag property to the country object, so it can be used in the UI.
  */
 export const fixCountryData = (country: Country): Country => {
 	const fixedCountry = {...country};
@@ -25,6 +28,8 @@ export const fixCountryData = (country: Country): Country => {
 		fixedCountry.languages = undefined;
 
 	if (country.borders && country.borders.length === 0) fixedCountry.borders = undefined;
+
+	if (country.cca2) fixedCountry.flag = getFlag(country);
 
 	return fixedCountry;
 };

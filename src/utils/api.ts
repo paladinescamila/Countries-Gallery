@@ -2,7 +2,7 @@ import axios from 'axios';
 import {fixCountryBorders, fixCountryData} from './fix';
 
 const URL = 'https://restcountries.com/v3.1/all';
-const fields = 'cca3,flags,name,population,region,subregion,capital,tld,currencies,languages';
+const fields = 'cca2,cca3,name,population,region,subregion,capital,tld,currencies,languages';
 
 /**
  * Loads the countries data from the API and returns it as an array and a collection. */
