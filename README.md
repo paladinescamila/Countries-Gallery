@@ -6,17 +6,17 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ## Links
 
--   [Solution](https://www.frontendmentor.io/solutions/rest-countries-api-with-color-theme-switcher-3X2SBoQTTg)
--   [Live Site](https://rca-frontend-mentor.netlify.app)
+- [Solution](https://www.frontendmentor.io/solutions/rest-countries-api-with-color-theme-switcher-3X2SBoQTTg)
+- [Live Site](https://rca-frontend-mentor.netlify.app)
 
 ## Built with
 
--   React.js
--   TypeScript
--   SCSS
+- React.js
+- TypeScript
+- SCSS
 
 ## Author
 
--   Website - [camilapaladines.netlify.app](https://camilapaladines.netlify.app)
--   Frontend Mentor - [@paladinescamila](https://www.frontendmentor.io/profile/paladinescamila)
--   LinkedIn - [@paladinescamila](https://co.linkedin.com/in/paladinescamila)
+- Website - [camilapaladines.netlify.app](https://camilapaladines.netlify.app)
+- Frontend Mentor - [@paladinescamila](https://www.frontendmentor.io/profile/paladinescamila)
+- LinkedIn - [@paladinescamila](https://co.linkedin.com/in/paladinescamila)
