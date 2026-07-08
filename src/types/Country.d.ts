@@ -13,3 +13,5 @@ type Country = {
 };
 
 type CountriesCollection = {[cca3: string]: Country};
+
+type CountriesData = {array: Country[]; collection: CountriesCollection};
