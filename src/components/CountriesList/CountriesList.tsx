@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo} from 'react';
+import {useEffect, useMemo} from 'react';
 import {useAppContext} from '../../context/AppContext';
 import {loadCountries} from '../../utils/api';
 import './CountriesList.scss';
@@ -9,21 +9,13 @@ import {normalizeText} from '../../utils/text';
 
 export default function CountriesList() {
 	// Context
-	const {search, region, setCountriesCollection} = useAppContext();
+	const {search, region, countries, setCountries, setCountriesCollection} = useAppContext();
 
 	// Data loading
-	const [loading, setLoading] = useState<boolean>(false);
-	const [countries, setCountries] = useState<Country[]>([]);
-
 	useEffect(() => {
-		if (loading || countries.length > 0) return;
-
-		setLoading(true);
-
 		loadCountries().then(({array, collection}) => {
 			setCountries(array);
 			setCountriesCollection(collection);
-			setLoading(false);
 		});
 	}, []);
 
@@ -45,8 +37,6 @@ export default function CountriesList() {
 
 		return newShowedCountries;
 	}, [countries, search, region]);
-
-	if (loading) return <p className='no-results'>Getting countries...</p>;
 
 	if (showedCountries.length === 0 && search)
 		return <p className='no-results'>No results found for "{search}"</p>;

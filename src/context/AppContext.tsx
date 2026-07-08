@@ -1,4 +1,5 @@
 import {createContext, useContext, useState} from 'react';
+import {COUNTRIES, COUNTRIES_COLLECTION} from '../constants/countries';
 
 interface ContextProps {
 	theme: Theme;
@@ -7,6 +8,8 @@ interface ContextProps {
 	setSearch: (search: string) => void;
 	region: Region | null;
 	setRegion: (region: Region | null) => void;
+	countries: Country[];
+	setCountries: (countries: Country[]) => void;
 	countriesCollection: CountriesCollection;
 	setCountriesCollection: (collection: CountriesCollection) => void;
 	currentCountry: Country | null;
@@ -25,8 +28,13 @@ export const AppProvider = ({children}: {children: JSX.Element | JSX.Element[]})
 	const [search, setSearch] = useState<string>('');
 	const [region, setRegion] = useState<Region | null>(null);
 
+	// Data
+	const [countries, setCountries] = useState<Country[]>(COUNTRIES);
+
+	const [countriesCollection, setCountriesCollection] =
+		useState<CountriesCollection>(COUNTRIES_COLLECTION);
+
 	// Navigation
-	const [countriesCollection, setCountriesCollection] = useState<CountriesCollection>({});
 	const [currentCountry, setCurrentCountry] = useState<Country | null>(null);
 	const [navigationPath, setNavigationPath] = useState<Country[]>([]);
 
@@ -54,6 +62,8 @@ export const AppProvider = ({children}: {children: JSX.Element | JSX.Element[]})
 				setSearch,
 				region,
 				setRegion,
+				countries,
+				setCountries,
 				countriesCollection,
 				setCountriesCollection,
 				currentCountry,
