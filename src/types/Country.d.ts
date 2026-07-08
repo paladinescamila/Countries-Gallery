@@ -1,19 +1,14 @@
 type Country = {
-	cca2: string;
-	cca3: string;
-	flag?: string;
-	name: {
-		common: string;
-		official: string;
-		nativeName?: Record<string, {official: string; common: string}>;
-	};
+	code: {alpha2: string; alpha3: string};
+	name: {common: string; native?: string};
+	flagUrl: string;
 	population?: number;
 	region?: string;
 	subregion?: string;
 	capital?: string[];
-	tld?: string[];
-	currencies?: Record<string, {name: string; symbol: string}>;
-	languages?: Record<string, string>;
+	domains?: string;
+	currencies?: string;
+	languages?: string;
 	borders?: string[];
 };
 

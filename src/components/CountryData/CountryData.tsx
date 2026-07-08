@@ -1,4 +1,5 @@
 import {useAppContext} from '../../context/AppContext';
+import ImageWithFallback from '../ImageWithFallback/ImageWithFallback';
 import './CountryData.scss';
 
 export default function CountryData() {
@@ -8,20 +9,25 @@ export default function CountryData() {
 	if (currentCountry === null) return;
 
 	// Country data
-	const {flag, name, borders} = currentCountry;
-	const {population, region, subregion, capital, tld, currencies, languages} = currentCountry;
+	const {flagUrl, name, borders} = currentCountry;
+
+	const {population, region, subregion, capital, domains, currencies, languages} = currentCountry;
 
 	return (
 		<div className='container'>
-			<img className='flag' src={flag} alt={`${currentCountry.name.common} flag`} />
+			<ImageWithFallback
+				className='flag'
+				src={flagUrl}
+				alt={`${currentCountry.name.common} flag`}
+			/>
 			<div className='data'>
 				<div className='name'>{name.common}</div>
 				<div className='props'>
 					<div className='props__left'>
-						{name.nativeName && (
+						{name.native && (
 							<p className='prop'>
 								<span>Native Name:</span>
-								<span>{Object.values(name.nativeName)[0]?.common}</span>
+								<span>{name.native}</span>
 							</p>
 						)}
 						{!!population && (
@@ -50,30 +56,22 @@ export default function CountryData() {
 						)}
 					</div>
 					<div className='props__right'>
-						{tld && (
+						{domains && (
 							<p className='prop'>
-								<span>Top Level Domain:</span>
-								<span>{Object.values(tld).join(', ')}</span>
+								<span>Domains:</span>
+								<span>{domains}</span>
 							</p>
 						)}
 						{currencies && (
 							<p className='prop'>
 								<span>Currencies:</span>
-								<span>
-									{Object.values(currencies)
-										.map((c) => c.name)
-										.join(', ')}
-								</span>
+								<span>{currencies}</span>
 							</p>
 						)}
 						{languages && (
 							<p className='prop'>
 								<span>Languages:</span>
-								<span>
-									{Object.values(languages)
-										.sort((a, b) => a.localeCompare(b))
-										.join(', ')}
-								</span>
+								<span>{languages}</span>
 							</p>
 						)}
 					</div>

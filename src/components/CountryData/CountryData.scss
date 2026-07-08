@@ -30,6 +30,8 @@
 .flag {
 	width: 560px;
 	height: 400px;
+	box-shadow: $box-shadow;
+	border-radius: $border-radius;
 
 	@media (max-width: 1300px) {
 		width: 400px;

@@ -16,7 +16,10 @@ export default function CountriesList() {
 	const [countries, setCountries] = useState<Country[]>([]);
 
 	useEffect(() => {
+		if (loading || countries.length > 0) return;
+
 		setLoading(true);
+
 		loadCountries().then(({array, collection}) => {
 			setCountries(array);
 			setCountriesCollection(collection);
@@ -51,7 +54,10 @@ export default function CountriesList() {
 	return (
 		<ul className='cards'>
 			{showedCountries.map((country) => (
-				<CountryCard key={country.cca3} country={country as Country} />
+				<CountryCard
+					key={`${country.code.alpha3}-${country.name.common}`}
+					country={country as Country}
+				/>
 			))}
 		</ul>
 	);

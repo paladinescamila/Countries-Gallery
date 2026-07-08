@@ -1,4 +1,5 @@
 import {useAppContext} from '../../context/AppContext';
+import ImageWithFallback from '../ImageWithFallback/ImageWithFallback';
 import './CountryCard.scss';
 
 export default function CountryCard({country}: {country: Country}) {
@@ -7,7 +8,11 @@ export default function CountryCard({country}: {country: Country}) {
 
 	return (
 		<li className='card' onClick={() => goTo(country)}>
-			<img className='card__flag' src={country.flag} alt={`${country.name.common} flag`} />
+			<ImageWithFallback
+				className='card__flag'
+				src={country.flagUrl}
+				alt={`${country.name.common} flag`}
+			/>
 			<div className='card__info'>
 				<p className='card__name'>{country.name.common}</p>
 				{!!country.population && (

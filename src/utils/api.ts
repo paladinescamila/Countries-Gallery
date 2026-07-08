@@ -1,33 +1,53 @@
 import axios from 'axios';
-import {fixCountryBorders, fixCountryData} from './fix';
+import {fixCountryData} from './fix';
+import {COUNTRIES, COUNTRIES_COLLECTION} from '../constants/countries';
 
-const URL = 'https://restcountries.com/v3.1/all';
-const fields = 'cca2,cca3,name,population,region,subregion,capital,tld,currencies,languages';
+const API_URL = 'https://api.restcountries.com/countries/v5';
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 /**
- * Loads the countries data from the API and returns it as an array and a collection. */
-export const loadCountries = async () => {
+ * Loads the countries data from the API. */
+const load = async () => {
 	try {
-		const response = await axios.get<Country[]>(`${URL}?fields=${fields}`);
-		const responseWithBorders = await axios.get<Country[]>(`${URL}?fields=cca3,borders`);
+		let array: Country[] = [];
 
-		let array = response.data
-			.map(fixCountryData)
-			.sort((a, b) => a.name.common.localeCompare(b.name.common));
+		for (let offset = 0; offset < 300; offset += 100) {
+			const response = await axios.get<RestCountriesResponse>(API_URL, {
+				params: {limit: 100, offset},
+				headers: {Authorization: `Bearer ${API_KEY}`},
+			});
 
-		let collection: CountriesCollection = {};
+			array.push(...response.data.data.objects.map(fixCountryData));
+		}
 
-		array.forEach((country) => (collection[country.cca3] = country));
-		responseWithBorders.data.forEach(({cca3, borders}) => (collection[cca3].borders = borders));
+		array = array.sort((a, b) => a.name.common.localeCompare(b.name.common));
 
-		array = array.map((country) => ({
-			...country,
-			borders: fixCountryBorders(collection[country.cca3].borders),
-		}));
+		const collection: CountriesCollection = {};
+		array.forEach((country) => (collection[country.code.alpha3] = country));
 
 		return {array, collection};
 	} catch (error) {
 		console.error('Error loading countries:', error);
-		return {array: [], collection: {}};
+		return {array: COUNTRIES, collection: COUNTRIES_COLLECTION};
 	}
+};
+
+let promiseCache: Promise<{array: Country[]; collection: CountriesCollection}> | null = null;
+let dataCache: {array: Country[]; collection: CountriesCollection} | null = null;
+
+/**
+ * Loads the countries data from the API and returns it as an array and a collection. */
+export const loadCountries = async () => {
+	if (dataCache) return dataCache;
+
+	if (promiseCache) return promiseCache;
+
+	const promise = load().then((data) => {
+		dataCache = data;
+		return data;
+	});
+
+	promiseCache = promise;
+
+	return promise;
 };
