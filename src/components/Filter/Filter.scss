@@ -3,6 +3,7 @@
 .filter {
 	position: relative;
 	user-select: none;
+	z-index: 99;
 }
 
 .filter-button {
